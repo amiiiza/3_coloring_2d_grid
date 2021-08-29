@@ -7,6 +7,10 @@ public class Node {
     Color color = null;
     ArrayList <Node> rangeNeighbourhood = null;
 
+    public Color getColor() {
+        return color;
+    }
+
     public void setColor(Color color) {
         this.color = color;
     }
@@ -44,4 +48,14 @@ public class Node {
     public ArrayList<Node> geteNeighbourhood() {
         return rangeNeighbourhood;
     }
+
+    public String toString(){
+        if (color.equals(Color.Zero))
+            return "0";
+        else if(color.equals(Color.One))
+            return "1";
+        else
+            return "2";
+    }
+
 }

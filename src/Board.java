@@ -31,7 +31,20 @@ public class Board {
             }
         }
     }
-
+    public void printBoard(){
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                Node node = nodeArray[i][j];
+                if (node.getState().equals(State.Unseen))
+                    System.out.print("x");
+                else if(node.getState().equals(State.Seen))
+                    System.out.print("o");
+                else
+                    System.out.print(node);
+            }
+            System.out.println();
+        }
+    }
     public Node getNode(int row, int col){
         return nodeArray[row][col];
     }

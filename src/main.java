@@ -19,6 +19,7 @@ public class main {
             System.out.println("Enter number of column:");
             col = Integer.parseInt(sc.nextLine());
             board.play(row, col);
+            board.printBoard();
         }
     }
 }
