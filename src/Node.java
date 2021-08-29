@@ -3,13 +3,10 @@ import java.util.ArrayList;
 public class Node {
     int row, col;
     State state;
-    Region region = null;
+    Region region;
     Color color = null;
-    ArrayList <Node> rangeNeighbourhood = null;
+    ArrayList <Node> rangeNeighbourhood;
 
-    public Color getColor() {
-        return color;
-    }
 
     public void setColor(Color color) {
         this.color = color;
