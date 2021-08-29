@@ -32,8 +32,15 @@ public class Node {
     public void setRegion(Region region) {
         this.region = region;
     }
-
-
+    public void printXY(){
+        System.out.println(row + " " + col);
+    }
+    public void printNeighbour(){
+        System.out.println("This node's neighbours:");
+        for (Node e:rangeNeighbourhood) {
+            e.printXY();
+        }
+    }
     public void setState(State state) {
         this.state = state;
     }
@@ -54,5 +61,26 @@ public class Node {
         else
             return "2";
     }
-
+    public void  commit(){
+        if (region.getParity().equals(Parity.Even_One)) {
+            if((row + col)% 2 == 0 )
+                setColor(Color.One);
+            else
+                setColor(Color.Zero);
+        }
+        else{
+            if((row + col)% 2 == 0 )
+                setColor(Color.Zero);
+            else
+                setColor(Color.One);
+        }
+    }
+    public String getStateName(){
+        if(state.equals(State.Seen))
+            return "Seen";
+        else if(state.equals(State.Unseen))
+            return "Unseen";
+        else
+            return "commited";
+    }
 }
