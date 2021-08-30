@@ -6,8 +6,15 @@ public class Node {
     Region region;
     Color color = null;
     ArrayList <Node> rangeNeighbourhood;
+    ArrayList <Node> adj;
 
+    public ArrayList<Node> getAdj() {
+        return adj;
+    }
 
+    public void addAdj(Node e){
+        adj.add(e);
+    }
     public void setColor(Color color) {
         this.color = color;
     }
@@ -23,6 +30,7 @@ public class Node {
         state = State.Unseen;
         region = null;
         rangeNeighbourhood = new ArrayList<>();
+        adj = new ArrayList<>();
     }
 
     public Region getRegion() {
@@ -61,6 +69,11 @@ public class Node {
         else
             return "2";
     }
+
+    public Color getColor() {
+        return color;
+    }
+
     public void  commit(){
         if (region.getParity().equals(Parity.Even_One)) {
             if((row + col)% 2 == 0 )

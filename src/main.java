@@ -1,6 +1,5 @@
-import java.util.ArrayList;
-import java.util.Scanner;
 
+import java.util.Scanner;
 public class main {
     public static int log2(int N) {
         return (int) (Math.log(N) / Math.log(2));
