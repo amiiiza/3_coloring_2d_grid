@@ -37,6 +37,7 @@ public class Board {
     }
     public void printBoard(){
         for (int i = 0; i < size; i++) {
+            System.out.print(i + "\t");
             for (int j = 0; j < size; j++) {
                 Node node = nodeArray[i][j];
                 if (node.getState().equals(State.Unseen))
