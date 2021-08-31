@@ -10,6 +10,17 @@ public class main {
         System.out.println("Enter the value n:");
         int n = Integer.parseInt(sc.nextLine());
         int range = log2(n);
-        new Board(n, range);
+        Board board = new Board(n, range);
+        while (true){
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            int row = (int) (Math.random() * n);
+            int col = (int) (Math.random() * n);
+            Node node = board.getRandomNode();
+            board.play(node.getRow(),node.getCol());
+        }
     }
 }

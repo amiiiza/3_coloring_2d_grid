@@ -1,34 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="283466b0-7154-49ea-b9bf-ba3731ebcc0a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3coloring2dgrid.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3Coloring2DimGrid/Minesweeper$Cell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3Coloring2DimGrid/Minesweeper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3Coloring2DimGrid/Parity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3Coloring2DimGrid/State.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/META-INF/3coloring2dgrid.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/Parity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/Region.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/State.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/Value.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Region.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Value.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" />
+    <list default="true" id="283466b0-7154-49ea-b9bf-ba3731ebcc0a" name="Changes" comment="Demo was ran in the summer subgroup.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3coloring2dgrid/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3coloring2dgrid/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +25,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager">
@@ -70,7 +50,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630414380532</updated>
+      <workItem from="1630414381860" duration="1396000" />
     </task>
+    <task id="LOCAL-00001" summary="Demo was ran in the summer subgroup.">
+      <created>1630414468028</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1630414468028</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Demo was ran in the summer subgroup." />
+    <option name="LAST_COMMIT_MESSAGE" value="Demo was ran in the summer subgroup." />
   </component>
 </project>

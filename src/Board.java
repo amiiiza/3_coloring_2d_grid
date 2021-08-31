@@ -14,6 +14,7 @@ public class Board extends JFrame implements ActionListener {
     JButton reset;
     boolean state, type, set;
     ArrayList<Region> regionList = new ArrayList<>();
+    ArrayList <Node> seenUnseen = new ArrayList<>();
 
     public void addRegion(Region region){
         regionList.add(region);
@@ -34,6 +35,7 @@ public class Board extends JFrame implements ActionListener {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 nodeArray[i][j] = new Node(i, j);
+                seenUnseen.add(nodeArray[i][j]);
                 nodeArray[i][j].setButton(b[i][j]);
             }
         }
@@ -73,7 +75,6 @@ public class Board extends JFrame implements ActionListener {
         add(reset);
         reset.addActionListener(this);
     }
-
     public void actionPerformed(ActionEvent e) {
         if (!e.getSource().equals(reset)) {
             JButton button = (JButton) e.getSource();
@@ -106,6 +107,9 @@ public class Board extends JFrame implements ActionListener {
         return nodeArray[row][col];
     }
 
+    public Node getRandomNode(){
+        return seenUnseen.get((int) (Math.random() * (seenUnseen.size())));
+    }
     public void play(int row, int col){
         ArrayList <Node> areaSelected = getNode(row,col).geteNeighbourhood();
         Set <Region> regionOfIntersection = new HashSet<>();
@@ -117,6 +121,7 @@ public class Board extends JFrame implements ActionListener {
             }
         }
         Node node = getNode(row,col);
+        seenUnseen.remove(node);
         // Check the condition 1: All nodes in B(v,r) are unseen.
         if (!seenNode && node.getState().equals(State.Unseen)){
             Region region = new Region();
