@@ -1,22 +1,40 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 
-public class Board {
+public class Board extends JFrame implements ActionListener {
     Node[][] nodeArray;
     int size;
+    JButton[][] b;
+    JButton reset;
+    boolean state, type, set;
     ArrayList<Region> regionList = new ArrayList<>();
+
     public void addRegion(Region region){
         regionList.add(region);
     }
+
     public Board(int size, int range) {
         this.size = size;
         nodeArray = new Node[size][size];
+        b = new JButton[size][size];
+        state = true;
+        type = true;
+        set = true;
+        setLayout(null);
+        setSize(size * 30 + 30, 150 + 30 * size);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        showButton();
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 nodeArray[i][j] = new Node(i, j);
+                nodeArray[i][j].setButton(b[i][j]);
             }
         }
         for (int i = 0; i < size; i++) {
@@ -35,6 +53,39 @@ public class Board {
             }
         }
     }
+
+    public void showButton() {
+        int x = 10;
+        int y = 10;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                b[i][j] = new JButton();
+                b[i][j].setBounds(x, y, 30, 30);
+                add(b[i][j]);
+                b[i][j].addActionListener(this);
+                x += 30;
+            }
+            y += 30;
+            x = 10;
+        }
+        reset = new JButton("RESET");
+        reset.setBounds(100, 350, 100, 50);
+        add(reset);
+        reset.addActionListener(this);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (!e.getSource().equals(reset)) {
+            JButton button = (JButton) e.getSource();
+            int row = (button.getBounds().y - 10) / 30;
+            int col = (button.getBounds().x - 10) / 30;
+            System.out.println(row + " " + col);
+            if (nodeArray[row][col].getState().equals(State.Unseen) || nodeArray[row][col].getState().equals(State.Seen))
+                play(row, col);
+            printBoard();
+        }
+    }
+
     public void printBoard(){
         for (int i = 0; i < size; i++) {
             System.out.print(i + "\t");
@@ -50,6 +101,7 @@ public class Board {
             System.out.println();
         }
     }
+
     public Node getNode(int row, int col){
         return nodeArray[row][col];
     }
@@ -67,9 +119,8 @@ public class Board {
         Node node = getNode(row,col);
         // Check the condition 1: All nodes in B(v,r) are unseen.
         if (!seenNode && node.getState().equals(State.Unseen)){
-            node.printNeighbour();
             Region region = new Region();
-            node.setColor(Color.Zero);
+            node.setValue(Value.Zero);
             region.addQueried(node);
             for (Node e:areaSelected)
                 region.addVisibilty(e);
@@ -91,8 +142,7 @@ public class Board {
                 region.addQueried(node);
                 region.deleteVisibilty(node);
                 node.commit();
-            }
-            else if(node.getState().equals(State.Unseen)){
+            } else if(node.getState().equals(State.Unseen)){
                 region.addQueried(node);
                 node.commit();
             }
@@ -100,7 +150,6 @@ public class Board {
         // Check the condition 3: There are nodes in B(v,t)that belong to different groups
         else{
             int n = regionOfIntersection.size();
-            System.out.println(n);
             Region [] list = new Region[n];
             System.arraycopy(regionOfIntersection.toArray(), 0, list, 0, n);
             Region r = list[0];
@@ -130,12 +179,12 @@ public class Board {
             maxThick = b;
         }
         if (!a.getParity().equals(b.getParity())){
-            adjCommit(minThick,State.Commited,Color.Zero,Color.One);
-            adjCommit(minThick,State.Queried,Color.Zero,Color.One);
-            adjCommit(minThick,State.Commited,Color.One,Color.Two);
-            adjCommit(minThick,State.Queried,Color.One,Color.Two);
-            adjCommit(minThick,State.Commited,Color.Two,Color.Zero);
-            adjCommit(minThick,State.Queried,Color.Two,Color.Zero);
+            adjCommit(minThick, State.Commited, Value.Zero, Value.One);
+            adjCommit(minThick, State.Queried, Value.Zero, Value.One);
+            adjCommit(minThick, State.Commited, Value.One, Value.Two);
+            adjCommit(minThick, State.Queried, Value.One, Value.Two);
+            adjCommit(minThick, State.Commited, Value.Two, Value.Zero);
+            adjCommit(minThick, State.Queried, Value.Two, Value.Zero);
             minThick.increaseThick();
         }
         finalRegion = new Region();
@@ -152,7 +201,8 @@ public class Board {
         regionList.add(finalRegion);
         return finalRegion;
     }
-    public void adjCommit(Region region, State state, Color color1, Color color2){
+
+    public void adjCommit(Region region, State state, Value value1, Value value2) {
         Node [] list;
         if (state.equals(State.Commited)){
             list = new Node[region.getCommited().size()];
@@ -163,12 +213,12 @@ public class Board {
         }
         for (int i = 0; i < list.length; i++) {
             Node e = list[i];
-            if (e.getColor().equals(color1)){
+            if (e.getValue().equals(value1)) {
                 for (Node p:e.getAdj()) {
                     if (p.getState().equals(State.Seen)){
                         region.addCommited(p);
                         region.deleteVisibilty(p);
-                        p.setColor(color2);
+                        p.setValue(value2);
                     }
                 }
             }

@@ -1,4 +1,4 @@
-public enum Color {
+public enum Value {
     Zero,
     One,
     Two

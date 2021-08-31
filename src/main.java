@@ -10,16 +10,6 @@ public class main {
         System.out.println("Enter the value n:");
         int n = Integer.parseInt(sc.nextLine());
         int range = log2(n);
-        Board board = new Board(n , range);
-        int row, col;
-        while(true){
-            System.out.println("Enter number of row:");
-            row = Integer.parseInt(sc.nextLine());
-            System.out.println("Enter number of column:");
-            col = Integer.parseInt(sc.nextLine());
-            board.play(row, col);
-            new Display(n);
-            board.printBoard();
-        }
+        new Board(n, range);
     }
 }
