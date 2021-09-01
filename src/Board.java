@@ -15,7 +15,7 @@ public class Board extends JFrame implements ActionListener {
     boolean state, type, set;
     ArrayList<Region> regionList = new ArrayList<>();
     ArrayList <Node> seenUnseen = new ArrayList<>();
-
+    final int sizeButton = 20;
     public void addRegion(Region region){
         regionList.add(region);
     }
@@ -28,7 +28,7 @@ public class Board extends JFrame implements ActionListener {
         type = true;
         set = true;
         setLayout(null);
-        setSize(size * 30 + 30, 150 + 30 * size);
+        setSize(size * sizeButton + 30, 150 + sizeButton * size);
         setVisible(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         showButton();
@@ -62,24 +62,21 @@ public class Board extends JFrame implements ActionListener {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 b[i][j] = new JButton();
-                b[i][j].setBounds(x, y, 30, 30);
+                b[i][j].setBounds(x, y, sizeButton, sizeButton);
                 add(b[i][j]);
+                b[i][j].setVisible(false);
                 b[i][j].addActionListener(this);
-                x += 30;
+                x += sizeButton;
             }
-            y += 30;
+            y += sizeButton;
             x = 10;
         }
-        reset = new JButton("RESET");
-        reset.setBounds(100, 350, 100, 50);
-        add(reset);
-        reset.addActionListener(this);
     }
     public void actionPerformed(ActionEvent e) {
         if (!e.getSource().equals(reset)) {
             JButton button = (JButton) e.getSource();
-            int row = (button.getBounds().y - 10) / 30;
-            int col = (button.getBounds().x - 10) / 30;
+            int row = (button.getBounds().y - 10) / sizeButton;
+            int col = (button.getBounds().x - 10) / sizeButton;
             System.out.println(row + " " + col);
             if (nodeArray[row][col].getState().equals(State.Unseen) || nodeArray[row][col].getState().equals(State.Seen))
                 play(row, col);
@@ -115,7 +112,7 @@ public class Board extends JFrame implements ActionListener {
         Set <Region> regionOfIntersection = new HashSet<>();
         boolean seenNode = false;
         for (Node e: areaSelected) {
-            if (e.getState().equals(State.Seen)) {
+            if (!e.getState().equals(State.Unseen)) {
                 regionOfIntersection.add(e.region);
                 seenNode = true;
             }
@@ -155,6 +152,7 @@ public class Board extends JFrame implements ActionListener {
         // Check the condition 3: There are nodes in B(v,t)that belong to different groups
         else{
             int n = regionOfIntersection.size();
+            System.out.println("This is the number of regions intersects: "  + n);
             Region [] list = new Region[n];
             System.arraycopy(regionOfIntersection.toArray(), 0, list, 0, n);
             Region r = list[0];
@@ -223,13 +221,16 @@ public class Board extends JFrame implements ActionListener {
                     if (p.getState().equals(State.Seen)){
                         region.addCommited(p);
                         region.deleteVisibilty(p);
+                        seenUnseen.remove(p);
                         p.setValue(value2);
                     }
                 }
             }
         }
     }
-
+    public void printRegion(){
+        System.out.println("This is region numbers: " + regionList.size());
+    }
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";

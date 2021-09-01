@@ -11,9 +11,14 @@ public class main {
         int n = Integer.parseInt(sc.nextLine());
         int range = log2(n);
         Board board = new Board(n, range);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         while (true){
             try {
-                Thread.sleep(500);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -21,6 +26,9 @@ public class main {
             int col = (int) (Math.random() * n);
             Node node = board.getRandomNode();
             board.play(node.getRow(),node.getCol());
+            System.out.println("This is the coordinate of chosen node:" + row + " " + col);
+            board.printBoard();
+            board.printRegion();
         }
     }
 }

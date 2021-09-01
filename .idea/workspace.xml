@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="283466b0-7154-49ea-b9bf-ba3731ebcc0a" name="Changes" comment="Demo was ran in the summer subgroup.">
+    <list default="true" id="283466b0-7154-49ea-b9bf-ba3731ebcc0a" name="Changes" comment="Randomly Adeversary added.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3coloring2dgrid/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3coloring2dgrid/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3coloring2dgrid/main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
@@ -50,7 +48,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630414380532</updated>
-      <workItem from="1630414381860" duration="1396000" />
+      <workItem from="1630414381860" duration="1663000" />
+      <workItem from="1630479418524" duration="425000" />
+      <workItem from="1630508064063" duration="5699000" />
     </task>
     <task id="LOCAL-00001" summary="Demo was ran in the summer subgroup.">
       <created>1630414468028</created>
@@ -59,7 +59,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630414468028</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Randomly Adeversary added.">
+      <created>1630417522969</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1630417522969</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,9 +82,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Demo was ran in the summer subgroup." />
-    <option name="LAST_COMMIT_MESSAGE" value="Demo was ran in the summer subgroup." />
+    <MESSAGE value="Randomly Adeversary added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Randomly Adeversary added." />
   </component>
 </project>

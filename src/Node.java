@@ -38,6 +38,8 @@ public class Node {
 
     public void setState(State state) {
         this.state = state;
+        if (!state.equals(State.Unseen))
+            button.setVisible(true);
     }
 
     public Region getRegion() {
