@@ -15,7 +15,7 @@ public class Board extends JFrame implements ActionListener {
     boolean state, type, set;
     ArrayList<Region> regionList = new ArrayList<>();
     ArrayList <Node> seenUnseen = new ArrayList<>();
-    final int sizeButton = 20;
+    final int sizeButton = 30;
     public void addRegion(Region region){
         regionList.add(region);
     }

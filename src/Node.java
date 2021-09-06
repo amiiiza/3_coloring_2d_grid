@@ -10,6 +10,9 @@ public class Node {
     ArrayList<Node> rangeNeighbourhood;
     ArrayList<Node> adj;
     JButton button;
+    Color dark = new Color(48, 71, 94),
+    medium = new Color(186, 107, 87),
+    light = new Color(241, 147, 92);
 
     public Node(int i, int j) {
         row = i;
@@ -85,11 +88,11 @@ public class Node {
     public void setValue(Value value) {
         this.value = value;
         if (value.equals(Value.Zero))
-            button.setBackground(Color.YELLOW);
+            button.setBackground(medium);
         else if (value.equals(Value.One))
-            button.setBackground(Color.RED);
+            button.setBackground(light);
         else if (value.equals(Value.Two))
-            button.setBackground(Color.blue);
+            button.setBackground(dark);
     }
 
     public void commit() {
